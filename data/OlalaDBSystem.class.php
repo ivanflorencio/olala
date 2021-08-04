@@ -1,0 +1,57 @@
+<?php
+
+	/**
+	 *  INTERFACE PARA CLASSES DE ACESSO A DADOS DO OBJETO PARA O SGBD
+	 *  Criado por: Ivan Florencio
+	 *  Dia: 13/03/2013
+	 *
+	 */
+	 
+	interface OlalaDBSystem {
+		
+		/**
+		 *  Método DE GRAVAÇÃO HIBRIDO: INSERT E UPDATE
+		 *  $dto, $trace = false, $isNew
+		 */
+		public function save($dto, $trace = false, $isNew = false, $updateFilter = false);
+		
+		/**
+		 *  Método DE GRAVAÇÃO DE NOVO REGISTRO: INSERT
+		 *  $dto, $trace = false, $isNew
+		 */
+		public function insert($dto, $trace = false);
+		
+		/**
+		 *  Método DE ALTERAÇÃO DE REGISTRO: UPDATE
+		 *  $dto, $trace = false, $isNew
+		 */
+		public function update($dto, $filter, $trace = false);
+		
+		/**
+		 *  Método DE CONSULTA
+		 *  $filter, $where = false, $trace = false
+		 */
+		public function get($filter = array(), $trace = false, $where = false, $isCount = false, $distinct = "");
+		
+		/**
+		 *	Método DE CONSULTA DA QUANTIDADE DE REGISTROS
+		 *   $filter, $trace = false
+		 */
+		public function count($filter = array(), $trace = false, $where = false);
+		
+		/**
+		 *	Método DE EXCLUSÃO DE REGISTROS
+		 *   $id, $trace = false
+		 */
+		public function delete($filter, $trace = false);
+		
+		/**
+		 * Método DE EXECUCAO DE QUERY GENERICA
+		 * $id, $trace = false
+		 */
+		public function execute($queryBuffer, $trace = false, $queryType = 'S');
+	
+	}
+	
+	
+	
